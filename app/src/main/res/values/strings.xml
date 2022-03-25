@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">codepath_instagram</string>
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+    <string name="back4app_app_id">qPYE7JksuTRTMMW6OElg20Q2OBYC3ut9tTk0BNlG</string>
+    <string name="back4app_client_key">v1w7yE5dftlqrbOhYTCg8M24lysGs67Ij1yEJyNv</string>
+</resources>
