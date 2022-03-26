@@ -31,6 +31,7 @@ class LoginActivity : AppCompatActivity() {
             val password = findViewById<EditText>(R.id.password).text.toString()
             signUpUser(username, password)
         }
+
     }
 
     private  fun signUpUser(username: String, password: String) {
