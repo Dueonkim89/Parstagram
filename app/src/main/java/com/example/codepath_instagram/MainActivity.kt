@@ -13,6 +13,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.FileProvider
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.parse.*
 import java.io.File
 
@@ -47,6 +48,33 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnTakePicture).setOnClickListener{
             // launch camera to let user take pic
             onLaunchCamera()
+        }
+
+
+        // event handler for each item in bottom nav bar
+        findViewById<BottomNavigationView>(R.id.bottom_navigation).setOnItemSelectedListener{
+            item ->
+
+            when (item.itemId) {
+
+                // navigate to home screen
+                R.id.action_home -> {
+                    Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
+                }
+
+                // navigate to compose screen
+                R.id.action_compose -> {
+                    Toast.makeText(this, "Compose", Toast.LENGTH_SHORT).show()
+                }
+
+                // navigate to profile screen
+                R.id.action_profile -> {
+                    Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
+                }
+
+            }
+
+            true
         }
 
         // log out user if they click logout Dkimbutton
