@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.codepath_instagram.fragments.ComposeFragment
 import com.example.codepath_instagram.fragments.FeedFragment
+import com.example.codepath_instagram.fragments.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.parse.*
 import java.io.File
@@ -48,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
                 // navigate to profile screen
                 R.id.action_profile -> {
-                    Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
+                    fragmentToShow = ProfileFragment()
                 }
 
             }
@@ -65,30 +66,6 @@ class MainActivity : AppCompatActivity() {
         //queryPosts()
     }
 
-
-    // QUery for all posts in our server
-    fun queryPosts() {
-        // Specify which class to query
-        val query: ParseQuery<Post> = ParseQuery.getQuery(Post::class.java)
-
-        // Find all post objects
-        query.include(Post.KEY_USER)
-        query.findInBackground(object : FindCallback<Post> {
-            override fun done(posts: MutableList<Post>?, e: ParseException?) {
-                if (e != null) {
-                    // something went wrong
-                    Log.e("DK_ERROR", "Error fetching posts")
-                } else {
-                    if (posts != null) {
-                        for (post in posts) {
-                            Log.i("Success_post", "Post is: " + post.getDescription() + post.getUser()?.username)
-                        }
-                    }
-                }
-            }
-
-        })
-    }
 
 
 }
